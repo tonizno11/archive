@@ -11,13 +11,14 @@ lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT | grep -E 'sd[a-z][0-9]'
 echo ""
 # Minta input dari pengguna
 read -p "Masukkan partisi BitLocker (contoh: sda1): " DEVICE_PART
+read -p "Masukkan nama direktori dislocker (contoh: bitlocker): " DISLOCKER_DIR_NAME
 read -p "Masukkan nama direktori mount (contoh: bitlockermount): " MOUNT_DIR_NAME
 read -sp "Masukkan password BitLocker: " PASSWORD
 echo  # Pindah baris setelah input password
 
 # Konfigurasi path
 DEVICE="/dev/${DEVICE_PART}"
-DISLOCKER_DIR="/media/bitlocker"
+DISLOCKER_DIR="/media/${DISLOCKER_DIR_NAME}"
 MOUNT_POINT="/media/${MOUNT_DIR_NAME}"
 
 # ==============================================
